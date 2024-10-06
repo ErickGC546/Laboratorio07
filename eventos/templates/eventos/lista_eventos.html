@@ -1,0 +1,28 @@
+{% block content %}
+    <title>Evento</title>
+    <div style="text-align: center; margin: 20px;">
+        <h1 style="font-size: 32px; color: #333; display: inline-block;">Lista de Evento</h1>
+        <br>
+        <div style="text-align: left;">
+            <a href="{% url 'crear_evento' %}" style="display: inline-block; background-color: #007786; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold;">Nuevo Evento</a>
+        </div>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th style="background-color: #007786; color: white; padding: 10px;">Nombre del evento</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">
+                        <a href="{% url 'detalle_evento' evento.id %}" style="text-decoration: none; color: #007786; font-weight: bold;" >
+                            {{ evento.nombre }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
